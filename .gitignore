@@ -1,0 +1,4 @@
+*
+#except cpp files
+!.gitignore
+!*.cpp
