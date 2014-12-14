@@ -26,13 +26,13 @@ class Solution {
 				for (j = k; j <= n - k - 1; j++)
 					v[i][j] = l++;
 				cout << "fuck" << endl;
-				for (i = i + 1; i <= n - k - 1; i++)
+				for (i + 1; i <= n - k - 1; i++)
 					v[i][j] = l++;
 				cout << "fuck" << endl;
 				for (j = j - 2; j >= k; j--)
 					v[i][j] = l++;
 				cout << "fuck" << endl;
-				for (i = i - 2; i > k; i--)
+				for (i = i - 2, j = j + 1; i > k; i--)
 					v[i][j] = l++;
 				cout << "fuck" << endl;
 			}
