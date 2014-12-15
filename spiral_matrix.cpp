@@ -1,63 +1,46 @@
 /*************************************************************************
-    > File Name: spiral_matrix.cpp
-    > Author: lax
-    > Mail: xingkungao@gmail.com
-    > Created Time: Sun 14 Dec 2014 08:32:53 PM CST
+  > File Name: spiral_matrix.cpp
+  > Author: lax
+  > Mail: xingkungao@gmail.com
+  > Created Time: Mon 15 Dec 2014 12:16:00 AM CST
  ************************************************************************/
 
-#include <iostream>
-#include <cstdio>
-#include <vector>
+#include "CPP.h"
 using namespace std;
+
 class Solution {
 	public:
-		vector<vector<int> > generateMatrix(int n) {
-			vector<vector<int> > v;
-			int i, j, k, l;
-			for (i = 0; i < n; i++) {
-				vector<int> row(n, 0);
-				v.push_back(row);
+		vector<int> spiralOrder(vector<vector<int> > &matrix) {
+			int m = matrix.size();
+			vector<int> ret;
+			if (!m)
+				return ret;
+			int n = matrix[0].size();
+			int i, j, k, l = min(m, n);
+			i = j = -1;
+			for (k = 0; k < l / 2; k++) {
+				for (i = i + 1, j = j + 1; j < n - k; j++)
+					ret.push_back(matrix[i][j]);
+				for (i = i + 1, j = j - 1; i < m - k; i++)
+					ret.push_back(matrix[i][j]);
+				for (i = i - 1, j = j - 1; j >= k; j--)  
+					ret.push_back(matrix[i][j]);
+				for (i = i - 1, j = j + 1; i > k; i--)
+					ret.push_back(matrix[i][j]);
 			}
-			print(v);
+			if (l&1) {
+				if (m <= n)
+					for (i = i+1, j = j + 1; j < n - k; j++)
+						ret.push_back(matrix[i][j]);
+				else 
+					for (i = i+1, j = j + 1; i < m - k; i++)
+						ret.push_back(matrix[i][j]);
 
-			i = j = 0;
-			l = 1;
-			for (k = 0; k < n / 2; k++) {
-				for (j = k; j <= n - k - 1; j++)
-					v[i][j] = l++;
-				cout << "fuck" << endl;
-				for (i + 1; i <= n - k - 1; i++)
-					v[i][j] = l++;
-				cout << "fuck" << endl;
-				for (j = j - 2; j >= k; j--)
-					v[i][j] = l++;
-				cout << "fuck" << endl;
-				for (i = i - 2, j = j + 1; i > k; i--)
-					v[i][j] = l++;
-				cout << "fuck" << endl;
 			}
-			/*
-			if (n&1)
-				v[n/2][n/2] = l;
-				*/
-			return v;
-		}
-		void print(vector<vector<int> > v) {
-			for (int i = 0; i < v.size(); i++) {
-				for (int j = 0; j < v[i].size(); j++)
-					cout << v[i][j] << '\t';
-				cout << endl;
-			}
-		}
-		void test() {
-			int n;
-			while (1) {
-				cin >> n; 
-				print(generateMatrix(n));
-			}
+			return ret;
 		}
 };
 int main() {
+
 	Solution s;
-	s.test();
 }

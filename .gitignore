@@ -1,4 +1,7 @@
 *
-#except cpp files
-!.gitignore
+#cpp files
 !*.cpp
+#header files
+!*.h
+#gitignore
+!.gitignore
