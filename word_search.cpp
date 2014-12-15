@@ -54,9 +54,10 @@ class Solution {
 								}
 							}
 							if (!sign) {
-//								flag[x*n+y] = false;
+								flag[x*n+y] = false;
 								s.pop();
 								m = cell->d; 
+								cout << "pop, m:" << m << endl;
 								k--;
 							}
 						}
