@@ -19,6 +19,7 @@
 #include <set>
 #include <unordered_set>
 #include <algorithm>
+#include <cassert>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>

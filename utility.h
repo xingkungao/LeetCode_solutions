@@ -22,12 +22,20 @@ struct ListNode {
 	ListNode *next;
 	ListNode(int x) : val(x), next(NULL) {}
 };
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(0), right(0){}
+};
 
 void printSinglyLinkedList(ListNode *head); 
 
 void deleteSinglyLinkedList(ListNode *head); 
 
 ListNode *createSinglyLinkedList(); 
+
+void printBinaryTree(TreeNode *root); 
 
 #include "utility.tpp"
 
