@@ -8,6 +8,7 @@
 #define _UTILITY_H_
 #include "CPP.h"
 using namespace std;
+
 template<typename T> 
 void print1DVector(std::vector<T> v);
 

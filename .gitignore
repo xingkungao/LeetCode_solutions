@@ -3,5 +3,6 @@
 !*.cpp
 #header files
 !*.h
+!*.tpp
 #gitignore
 !.gitignore
