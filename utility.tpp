@@ -79,4 +79,26 @@ void printBinaryTree(TreeNode *root) {
 		printBinaryTree(root->right);
 }
 
+vector<int> serializeBinaryTree(TreeNode *root) {
+	vector<int> v;
+	if (!root)
+		return v;
+	queue<TreeNode*> q;
+	TreeNode *node;
+	q.push(root);
+	while (!q.empty()) {
+		node = q.front();
+		q.pop();
+		if (node) {
+			v.push_back(node->val);
+			q.push(node->left);
+			q.push(node->right);
+		}
+		else 
+			v.push_back(INT_MIN);
+	}
+	while (v[v.size()-1] == INT_MIN)
+		v.pop_back();
+	return v;
+}
 
