@@ -20,7 +20,7 @@ template <typename T>
 void print2DVector(std::vector<std::vector<T> > v) {
 	cout << "sizeof vector:" << v.size() << endl;
 	for(typename std::vector<std::vector<T> >::iterator it = v.begin(); it != v.end(); ++it) {
-		cout << "sizeof row " << it - v.begin() << " :" << (*it).size() << '\t';
+		cout << "sizeof row" << it - v.begin() << ": " << (*it).size() << '\t' << '\t' ;
 		for (typename std::vector<T>::iterator jt = (*it).begin(); jt != (*it).end(); ++jt)  
 			std::cout << *jt << '\t';
 		std::cout << std::endl << endl;
