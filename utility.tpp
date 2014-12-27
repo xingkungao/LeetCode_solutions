@@ -64,6 +64,14 @@ ListNode *createSinglyLinkedList() {
 	}
 	return head;
 }
+int getSinglyLinkedListLength(ListNode *h)  {
+	int len = 0;
+	while (h) {
+		len++;
+		h = h->next;
+	}
+	return len;
+}
 
 void printBinaryTree(TreeNode *root) {
 	if (!root)

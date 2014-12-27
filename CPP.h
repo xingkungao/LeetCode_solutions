@@ -14,6 +14,7 @@
 #include <string>
 #include <queue>
 #include <stack>
+#include <bitset>
 #include <map>
 #include <unordered_map>
 #include <set>
