@@ -52,11 +52,11 @@ class Solution {
 			return n;
 		}
 		void test() {
-			char *a = "a             ";
-			char *b = "          ";
-			char *c = "    ab fdf aaaaa   ";
-			char *d = " s      aaa";
-			char *e = "saaaaa";
+			const char *a = "a             ";
+			const char *b = "          ";
+			const char *c = "    ab fdf aaaaa   ";
+			const char *d = " s      aaa";
+			const char *e = "saaaaa";
 			cout << lengthOfLastWord(a) << endl;
 			cout << lengthOfLastWord(b) << endl;
 			cout << lengthOfLastWord(c) << endl;
