@@ -30,8 +30,10 @@ class Solution {
 						len++;
 					}
 				}
-				if (i >= m)
+				if (i >= m) {
+					delete next;
 					return len - i;
+				}
 			}
 			delete(next);
 			return -1;
