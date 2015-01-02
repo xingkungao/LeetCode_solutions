@@ -8,6 +8,7 @@
 #ifndef _CPP_H_
 #define _CPP_H_
 #include <iostream>
+#include <ostream>
 #include <vector>
 #include <list>
 #include <deque>

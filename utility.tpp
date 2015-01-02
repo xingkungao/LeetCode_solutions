@@ -11,7 +11,7 @@ template <typename T>
 void print1DVector(std::vector<T> v) {
 	cout << "sizeof vector:" << v.size() << endl;
 	for(typename std::vector<T>::iterator it = v.begin(); it != v.end(); ++it) {
-		std::cout << *it << '\t';
+		cout << *it << '\t';
 	}
 	std::cout << std::endl << endl;
 }
