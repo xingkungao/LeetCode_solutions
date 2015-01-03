@@ -22,36 +22,51 @@ struct Interval {
 class Solution {
 	public:
 		vector<Interval> insert(vector<Interval> &intervals, Interval newInterval) {
-			int a = newInterval.start;
-			int b = newInterval.end;
-			int left, right;
-
-
-			int l = 0, r = intrvals.size() -1, mid;
-			while (l < r) {
-				mid = (l + r) / 2;
-				if (intervals[mid].start < a)
-					l = mid + 1;
-				else 
-					r = mid;
+			vector<Interval> ret;
+			if (intervals.empty()) {
+				intervals.insert(intervals.begin(), newInterval);
+				return intervals;
 			}
-			left = l;
-			r = intervals.size();
-			while (l < r) {
-				mid = (l + r) / 2;
-				if (intervals[mid].start > a)
-					r = mid - 1;
-				else 
-					l = mid;
-			}
-			right = l;
 
-			if (idxl == idxr)
-				intervals.insert(intervals.begin() + l, newInterval);
-			else {
-				if (idxl;
+			for (int i = 0; i < intervals.size(); i++) {
+				if (intervals[i].end < newInterval.start) {
+					ret.push_back(intervals[i]);
+				}
+				else if (intervals[i].start > newInterval.end) {
+
+					ret.push_back(newInterval);
+					newInterval = intervals[i];
+				}
+				else  {
+					newInterval.start = min(newInterval.start, intervals[i].start);
+					newInterval.end = max(newInterval.end, intervals[i].end);
+				}
+			}
+			ret.push_back(newInterval);
+			return ret;
+		}
+		void test() {
+			vector<Interval> v;
+			int n;
+			Interval a;
+			while (1) {
+				cin >> n;
+				for (int i = 0; i < n; i++) {
+					cin >> a.start >> a.end;
+					v.push_back(a);
+				}
+				cout << endl;
+				cin >> a.start >> a.end;
+				print(insert(v, a));
+				v.clear();
 
 			}
+		}
+		void print(const vector<Interval>& v) {
+			for (int i = 0; i < v.size(); i++) {
+				cout << "(" << v[i].start << "," << v[i].end << ")" << "    "; 
+			}
+			cout << endl;
 		}
 };
 
