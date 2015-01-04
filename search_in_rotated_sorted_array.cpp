@@ -37,7 +37,7 @@ class Solution {
 					}
 					else {
 						//mid is on the right;
-						if (flag)
+//						if (flag)
 							// target is on the left 
 							r = mid - 1;
 					}
@@ -45,7 +45,7 @@ class Solution {
 				else {
 					if (A[mid] >= guard)  {
 						//mid is on the left;
-						if (!flag)
+//						if (!flag)
 							// target is on the left 
 							l = mid + 1;
 					}

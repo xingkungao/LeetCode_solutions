@@ -1,18 +1,36 @@
 /*************************************************************************
-    > File Name: find_minimum_in_rotated_sorted_array.cpp
-    > Author: lax
-    > Mail: xingkungao@gmail.com
-    > Created Time: Tue 02 Dec 2014 07:43:35 PM CST
+  > File Name: find_minimum_in_rotated_sorted_array.cpp
+  > Author: lax
+  > Mail: xingkungao@gmail.com
+  > Created Time: Tue 02 Dec 2014 07:43:35 PM CST
  ************************************************************************/
 
-#include <iostream>
-#include <vector>
-#include <cstdio>
+#include  "CPP.h"
+#include "utility.h"
 using namespace std;
 
 class Solution {
 	public:
 		int findMin(vector<int> &num) {
+			return findMinStandard(num); 
+		}
+		int findMinStandard(vector<int> &num) {
+			int l = 0, r = num.size() -1, mid;
+			while (l < r) {
+				if (num[l] < num[r])
+					return num[l];
+
+				mid = (l + r) / 2;
+
+				if (num[mid] >= num[l])
+					l = mid + 1;
+				else 
+					r = mid;
+			}
+			return num[l];
+		}
+
+		int findMin2(vector<int> &num) {
 			int mid, l = 0, r = num.size() - 1;
 			if (l == r)
 				return num[l];
@@ -36,26 +54,19 @@ class Solution {
 			return num[mid];
 		}
 
-		int binarySearch(vector<int> &num, int data) {
-			int l, r, mid;
-			l = 0;
-			r = num.size() - 1;
-			while (l <= r) {
-				mid = (l + r) / 2;
-				if (data < num[mid])
-					r = mid - 1;
-				else if (data > num[mid])
-					l = mid + 1;
-				else 
-					return mid;
+		void test() {
+			vector<int> v;
+			int n;
+			int d;
+			while (1) {
+				while (cin >> d && d != -1000)
+					v.push_back(d);
+				cout << findMin(v) << endl;
+				v.clear();
 			}
-			return -1;
 		}
 };
 int main()  {
 	Solution s;
-	vector<int> v1;
-	v1.push_back(6);
-	v1.push_back(2);
-	cout << s.findMin(v1) << endl;
+	s.test();
 }

@@ -17,8 +17,7 @@ class Solution {
 			for (int i = 1; i < n; i++) {
 				if (A[l] != A[i]) {
 					l++;
-					if (l != i)
-						swap(A[l], A[i]);
+					A[l] = A[i];
 				}
 			}
 			return l+1;
