@@ -29,5 +29,4 @@ int main() {
 	string str = "leetcode";
 	unordered_set<string> set = {"l", "e", "t", "code"};
 	cout << boolalpha << s.wordBreak(str, set);
-
 }

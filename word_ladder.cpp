@@ -44,26 +44,19 @@ class Solution {
 					if (can.find(node) != can.end())
 						return cnt + 2;
 					used->pop();
-					/*
-					   for (auto it = dict.begin(); it != dict.end(); ++it) {
-					   if (!map[*it] && match(*it, node)) {
-					   unused->push(*it);
-					   map[*it] = true;
-					   }
-					   }
-					   */
-						for (int i = 0; i < node.length(); i++) {
-							char back = node[i];
-							for (int j = 0; j < 26; j++) {
-								node[i] = 'a' + j;
-								auto it = dict.find(node);
-								if (it != dict.end() && !map[*it]) {
-									unused->push(*it);
-									map[*it] = true;
-								}
+
+					for (int i = 0; i < node.length(); i++) {
+						char back = node[i];
+						for (int j = 0; j < 26; j++) {
+							node[i] = 'a' + j;
+							auto it = dict.find(node);
+							if (it != dict.end() && !map[*it]) {
+								unused->push(*it);
+								map[*it] = true;
 							}
-							node[i] = back;
 						}
+						node[i] = back;
+					}
 				}
 				cnt++;
 			}
@@ -90,8 +83,8 @@ class Solution {
 			s.insert("dog");
 			//s.insert("lot");
 			s.insert("log");
-			 //  s.insert("hot");
-			  // s.insert("cot");
+			//  s.insert("hot");
+			// s.insert("cot");
 			cout << ladderLength(start, end, s) << endl;
 		}
 };

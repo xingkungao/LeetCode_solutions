@@ -19,12 +19,26 @@ class Solution {
 					d = A[i];
 				}
 			}
+			/*
+			for (int i = 0; i < n; i++)
+				cout << A[i] << '\t';
+			cout << endl;
+			*/
+
 			for (int i = 0; i < n; i++) 
 				if (A[i] != i + 1)
 					return i + 1;
 			return n + 1;
 		}
 		void test() {
+			int a[100];
+			int n;
+			while (1) {
+				cin >> n;
+				for (int i = 0; i < n; i++)
+					cin >> a[i];
+				cout << firstMissingPositive(a, n);
+			}
 		}
 };
 
